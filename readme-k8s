@@ -1,54 +1,41 @@
-In Master machine: 
+################# IN Master Machine  ############################### 
 
-wget https://raw.githubusercontent.com/akshu20791/Deployment-script/main/k8s-master.sh
-ls -l
-ls
-chmod 777 k8s-master.sh
-ls -l
-./k8s-master.sh
+1. sudo su
+2. apt update -y
+3. wget https://raw.githubusercontent.com/hemantkumarsingh114/Deployment-Script-Kubennetes/main/k8s-master.sh
+4. ls
+5. ll
+6. chmod 777 k8s-master.sh
+7. ll
+8. sh k8s-master.sh  / ./k8s-master.sh
 
 
-################# IN the nodes ###############################
-sudo su (if not done)
- wget https://raw.githubusercontent.com/akshu20791/Deployment-script/main/k8s-nodes.sh
-ls
-ls -l
-chmod 777 k8s-nodes.sh
-ls -l
-./k8s-nodes.sh
+################# IN Nodes Machine ###############################
+
+1. sudo su
+2. apt update -y
+3. wget https://raw.githubusercontent.com/hemantkumarsingh114/Deployment-Script-Kubennetes/main/k8s-nodes.sh
+4. ls
+5. ll
+6. chmod 777 k8s-nodes.sh
+7. ls -l
+8. sh k8s-nodes.sh  /  ./k8s-nodes.sh
 
 
 ###########################################################################
 
-After k8s installation is done . we need to connect nodes with the master via tokens 
+After k8s Installation is Done, We need to Connect Nodes with the Master via Tokens->
 
-### generate token in master:  (run below command in k8s master) 
+->generate token in master:  (run below command in k8s master) 
 
-kubeadm token create --print-join-command 
+1. kubeadm token create --print-join-command
 
-## whatever token comes up ...copy the token and paste it in notepad and after that in the command you will see 6443 written ...after that paste --cri-socket unix:///var/run/cri-dockerd.sock
-
-
-EXAMPLE: YOUR TOKEN SHOULD LOOK LIKE THIS (REMEMBER NOT TO COPY BELOW TOKEN ITS NOT YOURS)
-
-kubeadm join 172.31.17.126:6443 --cri-socket unix:///var/run/cri-dockerd.sock --token 5fh9ia.7dqyttb7tvzzarg6 --discovery-token-ca-cert-hash sha256:47a2d8b3157d6cee55109aa3a37887d031a24128de05732b0c168fe9da62733e 
+-->Whatever Token Comes up ... Copy the Token and Paste it in Notepad and After that in the Command You will see 6443 Written ... after that Paste.
+->--cri-socket unix:///var/run/cri-dockerd.sock
 
 
-################
+2. EXAMPLE: YOUR TOKEN SHOULD LOOK LIKE THIS (REMEMBER NOT TO COPY BELOW TOKEN ITS NOT YOURS)->
 
-Now paste the tokens in the nodes one by one 
+kubeadm join 172.31.17.126:6443 --cri-socket unix:///var/run/cri-dockerd.sock --token 5fh9ia.7dqyttb7tvzzarg6 --discovery-token-ca-cert-hash sha256:47a2d8b3157d6cee55109aa3a37887d031a24128de05732b0c168fe9da62733e
 
-#################
-
-
-
-
-
-
-
-
-
-
-
-
-
+3. Now Paste the Tokens in the Nodes One by One.
